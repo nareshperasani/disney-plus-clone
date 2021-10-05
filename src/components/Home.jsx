@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Movies from "./Movies";
 import Viewers from "./Viewers";
 
 function Home() {
+
   return (
     <Container>
         <ImgSlider/>
@@ -17,9 +18,11 @@ function Home() {
 export default Home;
 
 const Container = styled.main`
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 250px);
   padding: 0 calc(3.5vw + 5px);
   position: relative;
+  display: block;
+  top: 72px;
   overflow-x: hidden;
 
   &:before {

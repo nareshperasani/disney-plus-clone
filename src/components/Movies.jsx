@@ -1,36 +1,23 @@
 import React from 'react'
 import styled from 'styled-components';
+import movies from '../movies.json';
+import {Link} from "react-router-dom";
+
+
 
 function Movies() {
+    
     return (
         <Container>
             <h4>Recommended for You</h4>
             <Content>
-                <Wrap>
-                    <img src="/images/slider-badag.jpg" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="/images/slider-scale.jpg" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="/images/slider-scales.jpg" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="/images/slider-badging.jpg" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="/images/slider-badag.jpg" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="/images/slider-badag.jpg" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="/images/slider-badag.jpg" alt="" />
-                </Wrap>
-                <Wrap>
-                    <img src="/images/slider-badag.jpg" alt="" />
-                </Wrap>
-
+                {movies && movies.map((movie)=>(
+                    <Wrap key={movie.id}>
+                        <Link to={`/detail/${movie.title}`}>
+                            <img src={movie.cardImg} alt="" />
+                        </Link>
+                    </Wrap>
+                ))}
             </Content>
         </Container>
     )
@@ -39,7 +26,6 @@ function Movies() {
 export default Movies;
 
 const Container = styled.div`
-    padding: 
 `;
 
 const Content = styled.div`
@@ -55,6 +41,7 @@ const Wrap = styled.div`
     border: 3px solid rgba(249, 249, 249, 0.1);
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
     transition: all 0.3s ease-in-out;
+    margin-bottom: 30px;
 
     img{
         width: 100%;
